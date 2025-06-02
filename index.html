@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🎯 لعبة حجر، ورقة، مقص - الإصدار المطور</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="main-container">
+    <div class="game-wrapper">
+      <!-- رأس الصفحة -->
+      <div class="header-section">
+        <h1 class="game-title">🎯 معركة العقول</h1>
+        <p class="game-subtitle">حجر، ورقة، مقص - الإصدار المطور</p>
+      </div>
+
+      <!-- اختيار الصعوبة -->
+      <div class="difficulty-section">
+        <button class="difficulty-btn easy active" onclick="setDifficulty('easy')">🟢 سهل</button>
+        <button class="difficulty-btn medium" onclick="setDifficulty('medium')">🟡 متوسط</button>
+        <button class="difficulty-btn hard" onclick="setDifficulty('hard')">🔴 صعب</button>
+      </div>
+
+      <!-- إحصائيات -->
+      <div class="stats-section">
+        <div class="stat-card">
+          <div class="stat-number" id="playerScore">0</div>
+          <div class="stat-label">👤 نقاطك</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="computerScore">0</div>
+          <div class="stat-label">🤖 نقاط الذكاء الاصطناعي</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="totalGames">0</div>
+          <div class="stat-label">📊 إجمالي المباريات</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="winRate">0%</div>
+          <div class="stat-label">🏆 معدل الفوز</div>
+        </div>
+      </div>
+
+      <!-- ساحة المعركة -->
+      <div class="battle-section">
+        <div class="players-grid">
+          <div class="player-card" id="playerCard">
+            <div class="player-name">👤 أنت</div>
+            <div class="player-choice" id="playerChoice">❓</div>
+          </div>
+          <div class="vs-section">⚔️</div>
+          <div class="player-card" id="computerCard">
+            <div class="player-name">🤖 الذكاء الاصطناعي</div>
+            <div class="player-choice" id="computerChoice">❓</div>
+            <div class="ai-thinking" id="aiThinking">
+              <div class="ai-thinking-bar"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- النتيجة -->
+      <div class="result-section">
+        <div class="result-text" id="result">اختر صعوبة المعركة ثم اختر سلاحك! ⚔️</div>
+      </div>
+
+      <!-- أزرار التحكم -->
+      <div class="controls-section">
+        <div class="controls-grid">
+          <button class="choice-btn rock" onclick="playGame('rock')" title="حجر - يهزم المقص">🪨</button>
+          <button class="choice-btn paper" onclick="playGame('paper')" title="ورقة - تهزم الحجر">📄</button>
+          <button class="choice-btn scissors" onclick="playGame('scissors')" title="مقص - يهزم الورقة">✂️</button>
+        </div>
+        <div class="action-buttons">
+          <button class="action-btn reset-btn" onclick="resetGame()">🔄 إعادة تعيين</button>
+          <button class="action-btn history-btn" onclick="toggleHistory()">📈 تاريخ المباريات</button>
+        </div>
+      </div>
+
+      <!-- التاريخ -->
+      <div class="history-section" id="historySection">
+        <h3 style="margin-bottom: 15px; text-align: center;">📈 تاريخ آخر 10 مباريات</h3>
+        <div id="historyList"></div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
